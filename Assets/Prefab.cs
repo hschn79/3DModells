@@ -55,9 +55,9 @@ public class Prefab : MonoBehaviour
         float summeHoehe = 0f;
         listContainer = new GameObject[(int)(hoehe * weite)];
         int i;
-        for (int j = 1; j <= hoehe; j++)
+        for (int j = 0; j < hoehe; j++)
         {
-            for (i = 1; i <= weite; i++)
+            for (i = 0; i < weite; i++)
             {
                 //Null Pointer Exception in 63
                 listContainer[j * i] = Instantiate(BSHC2600BC2430, new Vector3(summeWeite, summeHoehe, 0), Quaternion.identity) as GameObject;
