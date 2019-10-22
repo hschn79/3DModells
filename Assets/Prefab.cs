@@ -24,6 +24,8 @@ public class Prefab : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		set_hoehe(3);
+		set_weite(3);
         this.showContainer();
         //SendToJavscript(this.test);
 
@@ -83,7 +85,22 @@ public class Prefab : MonoBehaviour
     {
         canRotate = false;
     }
-
+	public float getWeite()
+	{
+		return (float)weite;
+	}
+	public float getHoehe()
+	{
+		return (float)hoehe;
+	}
+	public float getBreiteCont()
+	{
+		return breiteBSHC2600BC2430;
+	}
+	public float getHoeheCont()
+	{
+		return hoeheBSHC2600BC2430;
+	}
 
 
 }

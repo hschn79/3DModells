@@ -13,6 +13,8 @@ public class ChangeCamera : MonoBehaviour
 	public GameObject target;//the target object
 	private float speedMod = 2.0f;//a speed modifier
 	private bool anhalten = true;
+	public Prefab prefab;
+	private Vector3 point;
 
 	int counter = 1;
 
@@ -20,7 +22,8 @@ public class ChangeCamera : MonoBehaviour
     {
 		/*cameraOneLis = cameraOne.GetComponent<AudioListener>();
 		cameraTwoLis = cameraTwo.GetComponent<AudioListener>();*/
-		target.transform.LookAt(Vector3.zero);
+		point = new Vector3(prefab.getWeite() * prefab.getBreiteCont() * 0.5f, prefab.getHoehe()* prefab.getHoeheCont() * 0.5f, 0.0f);
+		target.transform.position = new Vector3(prefab.getWeite() * prefab.getBreiteCont() * 0.5f, prefab.getHoehe() * prefab.getHoeheCont() * 0.5f, -16.5f);
 	}
 
     // Update is called once per frame
@@ -28,12 +31,11 @@ public class ChangeCamera : MonoBehaviour
     {
 		if (anhalten == false)
 		{
-			target.transform.RotateAround(new Vector3(0.0f, 0.0f, 0.0f), new Vector3(0.0f, 1.0f, 0.0f), 20 * Time.deltaTime * speedMod);
+			target.transform.RotateAround(point, new Vector3(0.0f, 1.0f, 0.0f), 20 * Time.deltaTime * speedMod);
 		}
 	}
 	public void setAnhalten()
 	{
-		Debug.Log("anhalten:");
 		if(anhalten == true)
 		{
 			anhalten = false;
