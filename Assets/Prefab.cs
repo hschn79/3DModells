@@ -9,7 +9,7 @@ public class Prefab : MonoBehaviour
     public GameObject BSHC2600BC2430 = null;
     public GameObject[] listContainer;
 
-    private int weite = 3;
+    private int weite = 6;
     private int hoehe = 2;
 
     public float breiteBSHC2600BC2430 = 2.44f;
@@ -24,8 +24,8 @@ public class Prefab : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		set_hoehe(3);
-		set_weite(3);
+		set_hoehe(2);
+		set_weite(6);
         this.showContainer();
         //SendToJavscript(this.test);
 
