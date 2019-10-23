@@ -7,10 +7,16 @@ public class Prefab : MonoBehaviour
 {
     //verschiedene Containertypen
     public GameObject BSHC2600BC2430 = null;
+    public GameObject BSHC2600BC3000 = null;
+    public GameObject BStHC2800BC2430 = null; 
+    public GameObject BSHC2800BC3000 = null; 
+    public GameObject BSHC2960BC2430 = null;
+    public GameObject BSHC2960BC3000 = null; 
+
     public GameObject[] listContainer;
 
-    private int weite = 6;
-    private int hoehe = 2;
+    private int weite = 0;
+    private int hoehe = 0;
 
     public float breiteBSHC2600BC2430 = 2.44f;
     public float hoeheBSHC2600BC2430 = 2.6f;
@@ -24,59 +30,73 @@ public class Prefab : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		set_hoehe(2);
-		set_weite(6);
-        this.showContainer();
-        //SendToJavscript(this.test);
+        this.set_hoehe(2);
+        this.set_weite(2);
+  
+
+
 
     }
     // Update is called once per frame
     void Update()
     {
-        if (canRotate == true && listContainer != null)
+       if(Input.GetMouseButtonDown(0))
         {
-             for (int k = 0; k < (hoehe * weite); k++)
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if(Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-
-            listContainer[k].transform.Rotate(0, 0.5f, 0);
+                GameObject clickedObject = hit.collider.gameObject;
+                Debug.Log(clickedObject.transform.name);
             }
-
         }
 
     }
+   // void OnMouseDown() {
+     //   Debug.Log("clicked");
+    //}
+
     public void set_hoehe(int hoehe)
     {
+  
         this.hoehe = hoehe;
-        Instantiate(BSHC2600BC2430, new Vector3(0, 0, 0), Quaternion.identity);
+      
     }
     public void set_weite(int weite)
     {
         this.weite = weite;
+        showContainer();
 
     }
     private void showContainer()
     {
         float summeWeite = 0f;
         float summeHoehe = 0f;
-        //Nummerierung der Container in Array jetzt anders herum --> ändern?
-        int anzahlContainer = hoehe * weite;
-        listContainer = new GameObject[anzahlContainer];
+
+        int anzahlContainer = 0;
+        listContainer = new GameObject[hoehe * weite];
         int i;
         for (int j = 0; j < hoehe; j++)
         {
             for (i = 0; i < weite; i++)
             {
                
-                listContainer[anzahlContainer - 1] = Instantiate(BSHC2600BC2430, new Vector3(summeWeite, summeHoehe, 0), Quaternion.identity) as GameObject;
+                listContainer[anzahlContainer] = Instantiate(BSHC2600BC2430, new Vector3(summeWeite, summeHoehe, 0), Quaternion.identity) as GameObject;
+                listContainer[anzahlContainer].transform.name = anzahlContainer.ToString();
+                listContainer[anzahlContainer].AddComponent<BoxCollider>();
+                listContainer[anzahlContainer].GetComponent<BoxCollider>().size = new Vector3(2.44f, 2.6f, 5);
+                
+
+
                 summeWeite += breiteBSHC2600BC2430;
-                anzahlContainer--;
+                anzahlContainer++;
             }
             summeWeite = 0f;
             summeHoehe += hoeheBSHC2600BC2430;
         }
     }
 
-
+  
     public void drehungStart()
     {
         canRotate = true;
@@ -85,22 +105,7 @@ public class Prefab : MonoBehaviour
     {
         canRotate = false;
     }
-	public float getWeite()
-	{
-		return (float)weite;
-	}
-	public float getHoehe()
-	{
-		return (float)hoehe;
-	}
-	public float getBreiteCont()
-	{
-		return breiteBSHC2600BC2430;
-	}
-	public float getHoeheCont()
-	{
-		return hoeheBSHC2600BC2430;
-	}
+
 
 
 }
