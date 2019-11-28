@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class ChangeCamera : MonoBehaviour
 {
-	/*public GameObject cameraOne;
-	public GameObject cameraTwo;
-
-	AudioListener cameraOneLis;
-	AudioListener cameraTwoLis;*/
 
 	public GameObject target;//the target object
 	private float speedMod = 2.0f;//a speed modifier
@@ -20,9 +15,7 @@ public class ChangeCamera : MonoBehaviour
 
 	void Start()
     {
-		/*cameraOneLis = cameraOne.GetComponent<AudioListener>();
-		cameraTwoLis = cameraTwo.GetComponent<AudioListener>();*/
-		point = new Vector3(prefab.getWeite() * prefab.getBreiteCont() * 0.5f, prefab.getHoehe()* prefab.getHoeheCont() * 0.5f, 0.0f);
+		point = new Vector3(prefab.getWeite() * prefab.getBreiteCont() * 0.5f, prefab.getHoehe()* prefab.getHoeheCont() * 0.5f, 3.1f);
 		target.transform.position = new Vector3(prefab.getWeite() * prefab.getBreiteCont() * 0.5f, prefab.getHoehe() * prefab.getHoeheCont() * 0.5f, -16.5f);
 	}
 
@@ -44,25 +37,4 @@ public class ChangeCamera : MonoBehaviour
 			anhalten = true;
 		}
 	}
-
-	/*public void switchCamera()
-	{
-		if(counter == 1)
-		{
-			cameraTwoLis.enabled = false;
-			cameraTwo.SetActive(false);
-
-			cameraOne.SetActive(true);
-			cameraOneLis.enabled = true;
-			counter++;
-		} else if(counter == 2)
-		{
-			cameraTwoLis.enabled = true;
-			cameraTwo.SetActive(true);
-
-			cameraOne.SetActive(false);
-			cameraOneLis.enabled = false;
-			counter--;
-		}
-	} */
 }

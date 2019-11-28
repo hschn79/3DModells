@@ -3,7 +3,12 @@ guid: c011d514a25c324479e79166bf498a13
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _U6-Cont-112~0_Root_colorMat
+    second: {fileID: 2100000, guid: a0a3a60ef209c614eb6ea3029a1cbdfc, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

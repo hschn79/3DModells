@@ -558,8 +558,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45df81189ffb3cd4da810d90fa7c76f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buerolaengs: {fileID: -927199367670048503, guid: 25c0ada4ebb203e44add538bdbda66a2,
+    type: 3}
+  lagervorne: {fileID: -927199367670048503, guid: ad22ca8a3f68e7c4e99bdddc7a833c5c,
+    type: 3}
+  lagerhinten: {fileID: 0}
   BSHC2600BC2430: {fileID: -927199367670048503, guid: fd39b90e303869b4e9cf44a456e63aeb,
     type: 3}
+  BSHC2600BC3000: {fileID: 0}
+  BStHC2800BC2430: {fileID: 0}
+  BSHC2800BC3000: {fileID: 0}
+  BSHC2960BC2430: {fileID: 0}
+  BSHC2960BC3000: {fileID: 0}
   listContainer: []
   breiteBSHC2600BC2430: 2.44
   hoeheBSHC2600BC2430: 2.6

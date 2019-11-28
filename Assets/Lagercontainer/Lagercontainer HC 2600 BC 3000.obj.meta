@@ -3,7 +3,27 @@ guid: ad22ca8a3f68e7c4e99bdddc7a833c5c
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _TEst_lagercon~0_Root_SpiegelnTest_lagercon2~0-3_color-4Mat
+    second: {fileID: 2100000, guid: 05de72d62337b8b4ab28bea83074ee44, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _TEst_lagercon~0_Root_Test_Lagercon1~0-1_colorMat
+    second: {fileID: 2100000, guid: 639401362d0c77d41aca30a68c15a1fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _TEst_lagercon~0_Root_Test_lagercon2~0-1_color-2Mat
+    second: {fileID: 2100000, guid: b5e18a6eeac47a946aa71221bbd6c858, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _TEst_lagercon~0_Root_Test_lagercon3~0-5_color-3Mat
+    second: {fileID: 2100000, guid: e2a7b9d42b00e2a428d0b0079b14af40, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

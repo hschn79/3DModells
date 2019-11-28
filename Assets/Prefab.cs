@@ -6,13 +6,15 @@ using System.Runtime.InteropServices;
 public class Prefab : MonoBehaviour
 {
     //verschiedene Containertypen
+    public GameObject buerolaengs = null;
+    public GameObject lagervorne = null;
+    public GameObject lagerhinten = null;
     public GameObject BSHC2600BC2430 = null;
     public GameObject BSHC2600BC3000 = null;
     public GameObject BStHC2800BC2430 = null; 
     public GameObject BSHC2800BC3000 = null; 
     public GameObject BSHC2960BC2430 = null;
     public GameObject BSHC2960BC3000 = null; 
-
     public GameObject[] listContainer;
 
     private int weite = 0;
@@ -31,8 +33,8 @@ public class Prefab : MonoBehaviour
     void Start()
     {
         this.set_hoehe(2);
-        this.set_weite(2);
-  
+        this.set_weite(4);
+        changeContainer(3, "buerolaengs");
 
 
 
@@ -87,7 +89,6 @@ public class Prefab : MonoBehaviour
                 listContainer[anzahlContainer].GetComponent<BoxCollider>().size = new Vector3(2.44f, 2.6f, 5);
                 
 
-
                 summeWeite += breiteBSHC2600BC2430;
                 anzahlContainer++;
             }
@@ -105,7 +106,35 @@ public class Prefab : MonoBehaviour
     {
         canRotate = false;
     }
+	public float getWeite() {
+		return (float)weite;
+	}
+	public float getHoehe() {
+		return (float)hoehe;
+	}
+	public float getBreiteCont() {
+        return breiteBSHC2600BC2430;
+    }
+    public float getHoeheCont() {
+        return hoeheBSHC2600BC2430;
+    }
 
-
+    public void changeContainer(int position, string art) {
+        if(position <= listContainer.Length) {
+            Vector3 savePos = listContainer[position].transform.position;
+            Destroy(listContainer[position]);
+            if(art=="buerostirn") {
+                listContainer[position] = Instantiate(BSHC2600BC2430, savePos, Quaternion.identity);
+            } else if(art == "buerolaengs") {
+                listContainer[position] = Instantiate(buerolaengs, savePos, Quaternion.identity);
+            } else if(art == "lagervorne") {
+                listContainer[position] = Instantiate(lagervorne, savePos, Quaternion.identity);
+            } else {
+                listContainer[position] = Instantiate(lagerhinten, savePos, Quaternion.identity);
+            }
+        } else {
+            Debug.Log("falsche position");
+        }
+    }
 
 }
